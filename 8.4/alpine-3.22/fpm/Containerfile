@@ -1,0 +1,8 @@
+FROM php:8.4-fpm-alpine3.22
+
+LABEL mantainer="John Edisson Ortiz"
+LABEL email="j.ortiz3109@gmail.com"
+
+ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+RUN install-php-extensions @composer xdebug pdo_mysql pdo_pgsql
